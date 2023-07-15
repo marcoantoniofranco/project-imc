@@ -1,23 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              roboto: 'Roboto',
+            },
             colors: {
               clifford: '#da373d',
+              bluecolor: '#040924',
+              ttheading: '#0C3440',
+              ttlabel: '#00453A',
+              ttinput: '#212529',
+              otinput: '#02799D',
+              bdinput: 'rgba(73, 80, 87, 0.3)',
+              ttplaceholder: 'rgba(73, 80, 87, 0.5)',
+              bgbutton: '#02799D',
+              bgerror: '#F03E3E',
             },
           },
         },
       };
     </script>
     <title>Calculadora de IMC</title>
+
+    <script src="main.js" defer></script>
   </head>
-  <body>
-    <script src="main.js"></script>
+  <body class="bg-bluecolor font-roboto">
+    <div class="screen h-screen grid place-content-center">
+      <main
+        class="p-16 pt-12 bg-white max-w-[26.75rem] m-auto shadow-sm rounded-md"
+      >
+        <form action="">
+          <h1 class="">Cálculo de IMC</h1>
+          <div>
+            <label for="weight">Peso (kg)</label>
+            <input id="weight" type="text" placeholder="60" />
+          </div>
+          <div>
+            <label for="height">Altura (m)</label>
+            <input id="height" type="text" placeholder="165" />
+          </div>
+
+          <button class="" type="submit">
+            Calcular IMC
+            <img src="assets/img/arrow.svg" alt="Seta apontando para direita" />
+          </button>
+        </form>
+      </main>
+    </div>
   </body>
 </html>
