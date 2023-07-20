@@ -34,6 +34,9 @@
             boxShadow: {
               customshadow: '0px 2px 4px 0px rgba(0, 0, 0, 0.10)',
             },
+            alertError: {
+              openError: 'transform: translateY(0)',
+            },
           },
         },
       };
@@ -43,6 +46,13 @@
     <script src="main.js" defer></script>
   </head>
   <body class="bg-bluecolor font-roboto">
+    <div
+      id="error-message"
+      data-error="false"
+      class="text-gray-100 bg-bgerror absolute top-0 left-0 right-0 text-center py-2 font-bold transition-transform duration-500 opacity-0 invisible -translate-y-[30px] data-[error=true]:translate-y-0 data-[error=true]:opacity-100 data-[error=true]:visible"
+    >
+      Digite somente números
+    </div>
     <div class="screen h-screen grid place-content-center">
       <main
         class="p-16 pt-12 bg-white max-w-[26.75rem] m-auto shadow-sm rounded-md"
@@ -62,7 +72,7 @@
           </div>
           <div>
             <label class="text-[0.875rem] text-ttlabel block mb-2" for="height"
-              >Altura (m)</label
+              >Altura (cm)</label
             >
             <input
               class="w-full border border-bdinput bg-bginput p-4 rounded focus:outline-otinput placeholder:text-ttplaceholder text-base"
@@ -82,21 +92,21 @@
         </form>
       </main>
     </div>
-    <div class="opacity-0 hidden">
-      <div class="absolute inset-0 bg-bggray70 grid place-content-center">
-        <div class="relative">
-          <h2
-            class="text-3xl mb-8 text-ttheading p-16 pt-12 bg-white max-w-[26.75rem] m-auto shadow-sm rounded-md"
-          >
-            Seu IMC é de 28
-          </h2>
+    <div
+      class="modal-wrapper absolute inset-0 bg-bggray70 grid place-content-center opacity-0 invisible"
+    >
+      <div class="relative">
+        <h2
+          class="text-3xl mb-8 text-ttheading p-16 pt-12 bg-white max-w-[26.75rem] m-auto shadow-sm rounded-md"
+        >
+          <span>Seu IMC é de 28</span>
+        </h2>
 
-          <button
-            class="absolute right-4 top-4 cursor-pointer hover:scale-110 transition-transform duration-300"
-          >
-            <img src="assets/img/close.svg" alt="imagem para fechar o popup" />
-          </button>
-        </div>
+        <button
+          class="close absolute right-4 top-4 cursor-pointer hover:scale-110 transition-transform duration-300"
+        >
+          <img src="assets/img/close.svg" alt="imagem para fechar o popup" />
+        </button>
       </div>
     </div>
   </body>
